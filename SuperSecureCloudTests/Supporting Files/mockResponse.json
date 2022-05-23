@@ -1,0 +1,17 @@
+{
+    "existingUsernames": [
+        "sammy123",
+        "dude7",
+        "rachel_r"
+    ], 
+    "existingPasswords": [
+        "appetizer-broadside-unsure",
+        "edge-cardinal-overstate",
+        "tinker-partridge-scalded"
+    ], 
+    "insecurePasswords": [
+        "12345678",
+        "password",
+        "87654321"
+    ]
+}
