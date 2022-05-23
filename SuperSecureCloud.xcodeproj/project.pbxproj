@@ -120,14 +120,14 @@
 		EEA7E354283A6212002A26D2 /* SuperSecureCloud */ = {
 			isa = PBXGroup;
 			children = (
-				EEA7E392283A6DE9002A26D2 /* Services */,
-				EEA7E355283A6212002A26D2 /* SuperSecureCloudApp.swift */,
-				EEA7E38D283A6B7F002A26D2 /* ViewModel */,
-				EEA7E38C283A6B7A002A26D2 /* View */,
-				EEA7E38B283A6B73002A26D2 /* Model */,
-				EEA7E359283A6212002A26D2 /* Assets.xcassets */,
-				EEA7E35B283A6212002A26D2 /* Preview Content */,
 				EEA7E39B283A78CA002A26D2 /* DependecyProvider.swift */,
+				EEA7E355283A6212002A26D2 /* SuperSecureCloudApp.swift */,
+				EEA7E359283A6212002A26D2 /* Assets.xcassets */,
+				EEA7E38B283A6B73002A26D2 /* Model */,
+				EEA7E38C283A6B7A002A26D2 /* View */,
+				EEA7E38D283A6B7F002A26D2 /* ViewModel */,
+				EEA7E392283A6DE9002A26D2 /* Services */,
+				EEA7E35B283A6212002A26D2 /* Preview Content */,
 			);
 			path = SuperSecureCloud;
 			sourceTree = "<group>";
