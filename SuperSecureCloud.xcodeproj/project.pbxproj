@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE400A48283B9832001C7FA8 /* SignUpValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA7E381283A6645002A26D2 /* SignUpValidator.swift */; };
 		EEA7E356283A6212002A26D2 /* SuperSecureCloudApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA7E355283A6212002A26D2 /* SuperSecureCloudApp.swift */; };
 		EEA7E358283A6212002A26D2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA7E357283A6212002A26D2 /* ContentView.swift */; };
 		EEA7E35A283A6212002A26D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEA7E359283A6212002A26D2 /* Assets.xcassets */; };
@@ -29,8 +30,6 @@
 		EEA7E399283A735A002A26D2 /* MockNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA7E397283A735A002A26D2 /* MockNetworkingService.swift */; };
 		EEA7E39A283A735A002A26D2 /* MockNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA7E397283A735A002A26D2 /* MockNetworkingService.swift */; };
 		EEA7E39C283A78CA002A26D2 /* DependecyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA7E39B283A78CA002A26D2 /* DependecyProvider.swift */; };
-		EEA7E39D283A78CA002A26D2 /* DependecyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA7E39B283A78CA002A26D2 /* DependecyProvider.swift */; };
-		EEA7E39E283A78CA002A26D2 /* DependecyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA7E39B283A78CA002A26D2 /* DependecyProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -354,12 +353,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EEA7E39D283A78CA002A26D2 /* DependecyProvider.swift in Sources */,
 				EEA7E367283A6212002A26D2 /* SuperSecureCloudTests.swift in Sources */,
 				EEA7E389283A6B4F002A26D2 /* ProjectExtensions.swift in Sources */,
 				EEA7E390283A6C1A002A26D2 /* SignUpValidationInfo.swift in Sources */,
 				EEA7E399283A735A002A26D2 /* MockNetworkingService.swift in Sources */,
 				EEA7E395283A6E0B002A26D2 /* NetworkingService.swift in Sources */,
+				EE400A48283B9832001C7FA8 /* SignUpValidator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,7 +370,6 @@
 				EEA7E371283A6212002A26D2 /* SuperSecureCloudUITests.swift in Sources */,
 				EEA7E38A283A6B4F002A26D2 /* ProjectExtensions.swift in Sources */,
 				EEA7E391283A6C1A002A26D2 /* SignUpValidationInfo.swift in Sources */,
-				EEA7E39E283A78CA002A26D2 /* DependecyProvider.swift in Sources */,
 				EEA7E373283A6212002A26D2 /* SuperSecureCloudUITestsLaunchTests.swift in Sources */,
 				EEA7E39A283A735A002A26D2 /* MockNetworkingService.swift in Sources */,
 			);

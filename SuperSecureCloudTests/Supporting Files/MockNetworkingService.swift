@@ -6,11 +6,16 @@
 //
 
 import Foundation
+@testable import SuperSecureCloud
 
 class MockNetworkingService: NetworkingServiceProtocol {
 	
 	func bringSignUpValidationInfo() async throws -> SignUpValidationInfo {
-		Bundle.main.decode(SignUpValidationInfo.self, from: "mockResponse")
+		
+		Bundle(for: type(of: self))
+			.decode(SignUpValidationInfo.self,
+					from			: "mockResponse",
+					withExtension	: "json")
 	}
 	
 }

@@ -10,55 +10,71 @@ import Combine
 
 class ContentViewModel: ObservableObject {
 	private let validator: SignUpValidatorProtocol
+	private var usernameValidationTask: Task<Void, Never>?
+	private var passwordValidationTask: Task<Void, Never>?
+	
+	@Published var username: String = ""
+	@Published var usernameValidationError: ValidationError.Username?
+	
+	@Published var password: String = ""
+	@Published var passwordValidationError: ValidationError.Password?
+	
+	@Published var generalError: Error?
+	
 	
 	init(validator: SignUpValidatorProtocol = DependencyProvider.signUpValidator) {
 		self.validator = validator
 	}
 	
-	@Published var username: String = ""
-	@Published var usernameValidationError: ValidationError.Username?
-
-	@Published var password: String = ""
-	@Published var passwordValidationError: ValidationError.Password?
-	
-	@Published var generalError: Error? = nil
-	private var subscriptions = Set<AnyCancellable>()
-	
+	/// Start listening to `username` and `password` input changes and and validate them continuously.
 	func start() {
-		_ = _start
+		startValidatingUsername()
+		startValidatingPassword()
 	}
 	
-	/// Start listening to `username` and `password` input changes and and validate them continuously.
-	private lazy var _start: Void = {
-		$username
-			.dropFirst()
-			.debounce(for: 0.8, scheduler: RunLoop.main)
-			.sink { [weak self] username in
+	private func startValidatingUsername() {
+		usernameValidationTask = Task {
+			let usernameValues = $username
+				.debounce(for: 0.5, scheduler: RunLoop.main)
+				.values
+			
+			for await usernameValue in usernameValues {
 				do {
-					_ = try self?.validator.validate(username: username)
-					withAnimation { self?.usernameValidationError = nil }
+					try await validator.validate(username: usernameValue)
+					await MainActor.run {
+						withAnimation { usernameValidationError = nil }
+					}
 				} catch {
 					if let usernameError = error as? ValidationError.Username {
-						withAnimation { self?.usernameValidationError = usernameError }
+						await MainActor.run {
+							withAnimation { usernameValidationError = usernameError }
+						}
 					}
 				}
 			}
-			.store(in: &subscriptions)
-		
-		$password
-			.dropFirst()
-			.debounce(for: 0.8, scheduler: RunLoop.main)
-			.sink { [weak self] password in
+		}
+	}
+	
+	private func startValidatingPassword() {
+		passwordValidationTask = Task {
+			let passwordValues = $password
+				.debounce(for: 0.5, scheduler: RunLoop.main)
+				.values
+			
+			for await passwordValue in passwordValues {
 				do {
-					_ = try self?.validator.validate(password: password)
-					withAnimation { self?.passwordValidationError = nil }
+					try await validator.validate(password: passwordValue)
+					await MainActor.run {
+						withAnimation { passwordValidationError = nil }
+					}
 				} catch {
 					if let passwordError = error as? ValidationError.Password {
-						withAnimation { self?.passwordValidationError = passwordError }
+						await MainActor.run {
+							withAnimation { passwordValidationError = passwordError }
+						}
 					}
 				}
 			}
-			.store(in: &subscriptions)
-	}()
-	
+		}
+	}
 }
