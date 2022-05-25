@@ -14,14 +14,11 @@ protocol SignUpValidatorProtocol {
 }
 
 class SignUpValidator {
-	@Published private(set) var usingRemoteValidationInfo: Bool = false 
-	
 	private let networkingService: NetworkingServiceProtocol
 	
 	private var validationInfo: SignUpValidationInfo {
 		get async {
 			let remoteValidationInfo = try? await networkingService.bringSignUpValidationInfo()
-			defer { usingRemoteValidationInfo = remoteValidationInfo != nil }
 			return remoteValidationInfo ?? .default
 		}
 	}
@@ -56,7 +53,7 @@ extension SignUpValidator: SignUpValidatorProtocol {
 			throw ValidationError.Password.tooShort
 		}
 		
-		else if password.count > 16 {
+		else if password.count > 32 {
 			throw ValidationError.Password.tooLong
 		}
 		

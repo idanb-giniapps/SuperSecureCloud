@@ -41,7 +41,7 @@ extension ContentView {
 	}
 	
 	private var passwordTextFieldSection: some View {
-		Section("must be 8-16 characters long, unique and secure") {
+		Section("must be 8-32 characters long, unique and secure") {
 			SecureField("Password", text: $viewModel.password)
 				.focused($focusedField, equals: .password)
 			if let passwordError = viewModel.passwordValidationError {
