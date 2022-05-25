@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE1A68E8283E0C3700D380D9 /* NotSoGoodSignUpValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1A68E7283E0C3700D380D9 /* NotSoGoodSignUpValidator.swift */; };
+		EE1A68EA283E2D8100D380D9 /* NotSoGoodNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1A68E9283E2D8100D380D9 /* NotSoGoodNetworkingService.swift */; };
+		EE1A68EE283E444900D380D9 /* AppErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1A68ED283E444900D380D9 /* AppErrors.swift */; };
 		EE400A48283B9832001C7FA8 /* SignUpValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA7E381283A6645002A26D2 /* SignUpValidator.swift */; };
 		EEA7E356283A6212002A26D2 /* SuperSecureCloudApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA7E355283A6212002A26D2 /* SuperSecureCloudApp.swift */; };
 		EEA7E358283A6212002A26D2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA7E357283A6212002A26D2 /* ContentView.swift */; };
@@ -50,6 +53,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EE1A68E7283E0C3700D380D9 /* NotSoGoodSignUpValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotSoGoodSignUpValidator.swift; sourceTree = "<group>"; };
+		EE1A68E9283E2D8100D380D9 /* NotSoGoodNetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotSoGoodNetworkingService.swift; sourceTree = "<group>"; };
+		EE1A68ED283E444900D380D9 /* AppErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppErrors.swift; sourceTree = "<group>"; };
 		EEA7E352283A6212002A26D2 /* SuperSecureCloud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperSecureCloud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEA7E355283A6212002A26D2 /* SuperSecureCloudApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperSecureCloudApp.swift; sourceTree = "<group>"; };
 		EEA7E357283A6212002A26D2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -95,6 +101,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EE1A68EB283E3FEF00D380D9 /* Not So Good */ = {
+			isa = PBXGroup;
+			children = (
+				EE1A68E7283E0C3700D380D9 /* NotSoGoodSignUpValidator.swift */,
+				EE1A68E9283E2D8100D380D9 /* NotSoGoodNetworkingService.swift */,
+			);
+			path = "Not So Good";
+			sourceTree = "<group>";
+		};
+		EE1A68EC283E3FFB00D380D9 /* Better */ = {
+			isa = PBXGroup;
+			children = (
+				EEA7E39B283A78CA002A26D2 /* DependecyProvider.swift */,
+				EEA7E381283A6645002A26D2 /* SignUpValidator.swift */,
+				EEA7E393283A6E0B002A26D2 /* NetworkingService.swift */,
+			);
+			path = Better;
+			sourceTree = "<group>";
+		};
 		EEA7E349283A6212002A26D2 = {
 			isa = PBXGroup;
 			children = (
@@ -119,7 +144,6 @@
 		EEA7E354283A6212002A26D2 /* SuperSecureCloud */ = {
 			isa = PBXGroup;
 			children = (
-				EEA7E39B283A78CA002A26D2 /* DependecyProvider.swift */,
 				EEA7E355283A6212002A26D2 /* SuperSecureCloudApp.swift */,
 				EEA7E359283A6212002A26D2 /* Assets.xcassets */,
 				EEA7E38B283A6B73002A26D2 /* Model */,
@@ -178,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				EEA7E38E283A6C1A002A26D2 /* SignUpValidationInfo.swift */,
+				EE1A68ED283E444900D380D9 /* AppErrors.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -201,8 +226,8 @@
 		EEA7E392283A6DE9002A26D2 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				EEA7E381283A6645002A26D2 /* SignUpValidator.swift */,
-				EEA7E393283A6E0B002A26D2 /* NetworkingService.swift */,
+				EE1A68EC283E3FFB00D380D9 /* Better */,
+				EE1A68EB283E3FEF00D380D9 /* Not So Good */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -339,12 +364,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEA7E358283A6212002A26D2 /* ContentView.swift in Sources */,
+				EE1A68E8283E0C3700D380D9 /* NotSoGoodSignUpValidator.swift in Sources */,
 				EEA7E356283A6212002A26D2 /* SuperSecureCloudApp.swift in Sources */,
+				EE1A68EE283E444900D380D9 /* AppErrors.swift in Sources */,
 				EEA7E38F283A6C1A002A26D2 /* SignUpValidationInfo.swift in Sources */,
 				EEA7E382283A6645002A26D2 /* SignUpValidator.swift in Sources */,
 				EEA7E388283A6B4F002A26D2 /* ProjectExtensions.swift in Sources */,
 				EEA7E394283A6E0B002A26D2 /* NetworkingService.swift in Sources */,
 				EEA7E39C283A78CA002A26D2 /* DependecyProvider.swift in Sources */,
+				EE1A68EA283E2D8100D380D9 /* NotSoGoodNetworkingService.swift in Sources */,
 				EEA7E380283A6609002A26D2 /* ContentViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

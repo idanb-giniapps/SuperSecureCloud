@@ -58,9 +58,7 @@ extension ContentView {
 			}
 			.disabled(viewModel.passwordValidationError != nil ||
 					  viewModel.usernameValidationError != nil ||
-					  viewModel.generalError != nil ||
-					  viewModel.username.isEmpty ||
-					  viewModel.password.isEmpty)
+					  viewModel.generalError != nil)
 		}
 	}
 	

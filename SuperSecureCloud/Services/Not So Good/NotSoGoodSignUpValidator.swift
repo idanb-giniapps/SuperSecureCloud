@@ -1,20 +1,15 @@
 //
-//  SignUpValidationService.swift
+//  NotSoGoodSignUpValidator.swift
 //  SuperSecureCloud
 //
-//  Created by Idan Birman on 22/05/2022.
+//  Created by Idan Birman on 25/05/2022.
 //
 
 import Foundation
-import Combine
 
-protocol SignUpValidatorProtocol {
-	@discardableResult func validate(username: String) async throws -> String
-	@discardableResult func validate(password: String) async throws -> String
-}
-
-class SignUpValidator {
-	private let networkingService: NetworkingServiceProtocol
+class NotSoGoodSignUpValidator {
+	// MARK: - Properties
+	private let networkingService = NetworkingService()
 	
 	private var validationInfo: SignUpValidationInfo {
 		get async {
@@ -23,12 +18,7 @@ class SignUpValidator {
 		}
 	}
 	
-	init(networkingService: NetworkingServiceProtocol) {
-		self.networkingService = networkingService
-	}
-}
-
-extension SignUpValidator: SignUpValidatorProtocol {
+	// MARK: - Methods (Internal)
 	@discardableResult
 	func validate(username: String) async throws -> String {
 		
@@ -70,39 +60,4 @@ extension SignUpValidator: SignUpValidatorProtocol {
 		return password
 	}
 
-}
-
-enum ValidationError {
-	
-	// MARK: - Username
-	enum Username: Error {
-		case tooLong
-		case tooShort
-		case alreadyExists
-		
-		var uiDescription: String {
-			switch self {
-				case .tooLong		: return "Username too long"
-				case .tooShort		: return "Username too short"
-				case .alreadyExists	: return "This username already exists"
-			}
-		}
-	}
-
-	// MARK: - Password
-	enum Password: Error {
-		case tooLong
-		case tooShort
-		case alreadyExists
-		case insecure
-		
-		var uiDescription: String {
-			switch self {
-				case .tooLong		: return "Password is too long"
-				case .tooShort		: return "Password is too short"
-				case .alreadyExists	: return "Password already exists"
-				case .insecure		: return "Password is insecure"
-			}
-		}
-	}
 }

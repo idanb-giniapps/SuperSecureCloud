@@ -11,11 +11,6 @@ protocol NetworkingServiceProtocol {
 	func bringSignUpValidationInfo() async throws -> SignUpValidationInfo
 }
 
-enum NetworkingError: Error {
-	case requestFailed
-	case parsingFailed
-}
-
 class NetworkingService: NetworkingServiceProtocol {
 	
 	func bringSignUpValidationInfo() async throws -> SignUpValidationInfo {

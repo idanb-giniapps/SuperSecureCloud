@@ -14,13 +14,11 @@ class ContentViewModel: ObservableObject {
 	private var passwordValidationTask: Task<Void, Never>?
 	
 	@Published var username: String = ""
-	@Published var usernameValidationError: ValidationError.Username?
-	
 	@Published var password: String = ""
-	@Published var passwordValidationError: ValidationError.Password?
-	
-	@Published var generalError: Error?
-	
+
+	@Published private(set) var usernameValidationError: ValidationError.Username?
+	@Published private(set) var passwordValidationError: ValidationError.Password?
+	@Published private(set) var generalError: Error?
 	
 	init(validator: SignUpValidatorProtocol = DependencyProvider.signUpValidator) {
 		self.validator = validator
@@ -28,9 +26,13 @@ class ContentViewModel: ObservableObject {
 	
 	/// Start listening to `username` and `password` input changes and and validate them continuously.
 	func start() {
+		_ = _start
+	}
+
+	private lazy var _start: Void = {
 		startValidatingUsername()
 		startValidatingPassword()
-	}
+	}()
 	
 	private func startValidatingUsername() {
 		usernameValidationTask = Task {
