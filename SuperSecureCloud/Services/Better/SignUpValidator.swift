@@ -65,7 +65,7 @@ class SignUpValidator: SignUpValidatorProtocol {
 		
 		else if await validationInfo
 			.insecurePasswords
-			.map({ $0.lowercased() })
+			.map(\.localizedLowercase)
 			.contains(password.localizedLowercase) { throw ValidationError.Password.insecure }
 		
 		return password
